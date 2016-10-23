@@ -1,9 +1,10 @@
 # User
+- has_many :messages
 
 ## association
 - has_and_belongs_to_many :groups
 
-## table
+## columns
 - name         :string, null: false
 - email        :string, null: false, unique: true
 - password     :string, null: false
@@ -17,8 +18,8 @@
 - has_and_belongs_to_many :users
 - has_many :messages
 
-## table
-- group_name     :string, null: false
+## columns
+- name           :string, null: false
 - user           :references
 - created_at
 - updated_at
@@ -26,7 +27,7 @@
 
 # Groups_Users
 
-## table
+## columns
 - user         :references
 - group        :references
 
@@ -34,11 +35,13 @@
 # Message
 
 ## association
+- belongs_to :user
 - belongs_to :group
 
-## table
+## columns
 - body         :text
 - image        :string
+- user         :references
 - group        :references
 - created_at
 - updated_at
