@@ -20,13 +20,10 @@ body{
   background-color: #2f3e51;
   width: 300px;
   height: 100vh;
-  // margin: 0px;
   float: left;
 }
 
-
 .chat-user {
-  // height: 100px;
   padding: 20px;
   color: #fff;
   background-color: #253141;
@@ -37,13 +34,13 @@ body{
     font-size: 16px;
     font-weight: bold;
   }
-  .chat-user__actions{
+  &__actions{
     float: right;
   }
   &:hover i.fa{
     cursor: pointer;
   }
-  .chat-user__action{
+  &__action{
     display: inline-block;
     margin: 15px 0 15px 3px;
     line-height: 28px;
@@ -82,16 +79,8 @@ body{
   }
 }
 
-
-
 a{
   text-decoration: none;
-}
-
-.clearfix:after{
-  content: "";
-  display: block;
-  clear: both;
 }
 
 .chat-main{
@@ -106,7 +95,7 @@ a{
   padding-left: 40px;
   background-color: #fff;
   border-bottom: 1px solid #eee;
-    .chat-header--left{
+    &--left{
       float: left;
     }
     h2{
@@ -117,18 +106,18 @@ a{
       font-size: 20px;
       font-weight: 400;
     }
-    .chat-header__users{
+    &__users{
       line-height: 20px;
       color: #999;
       font-size: 12px;
     }
-    .chat-header__user{
+    &__user{
       margin-left: 3px;
     }
-    .chat-header--right{
+    &--right{
       float: right;
     }
-    .chat-header__edit-btn{
+    &__edit-btn{
       display: inline-block;
       margin: 28px 0;
       padding-right: 20px;
@@ -138,7 +127,6 @@ a{
       font-size: 14px;
       border: 2px solid;
     }
-
 }
 
 .chat-body{
@@ -155,36 +143,34 @@ a{
   }
   .chat-message{
     margin-bottom: 40px;
-    .chat-message__header{
+    &__header{
       line-height: 20px;
     }
-    .chat-message__name{
+    &__name{
       float: left;
       margin-bottom: 10px;
       font-weight: 600;
       padding-right: 10px;
     }
-    .chat-message__body{
+    &__body{
       font-size: 14px;
     }
   }
 }
 
 .chat-footer{
-  // height: 20px;
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
   padding: 20px 40px;
   background-color: #ddd;
-  // width: 100%;
-  .chat-footer__body{
+  &__body{
     float: left;
     width: calc(100% - 115px);
     height: 50px;
     position: relative;
-    .chat-footer__file{
+    &__file{
       position: absolute;
       top: 0;
       right: 0;
