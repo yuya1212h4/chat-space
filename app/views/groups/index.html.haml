@@ -39,5 +39,6 @@
               message
       .chat-footer
         = form_for(@message) do |f|
-          = f.text_field :body, autofocus: "", placeholder: "type a message", required: ""
-          = f.submit 'Send'
+          = f.text_field :body, class: "textarea",autofocus: "", placeholder: "type a message", required: ""
+          = f.submit 'Send', class: "submit"
+          %i.fa.fa-file-image-o
