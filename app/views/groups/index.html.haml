@@ -1,0 +1,45 @@
+- tmp_group = Group.new(id: 1, name: 'aaaaa')
+.layout-notification
+  .chat
+    .chat-side
+      .chat-user.clearfix
+        %h5 user
+        .chat-user__actions
+          = link_to '#', class: "chat-user__action" do
+            %i.fa.fa-pencil-square-o
+          = link_to '##', class: "chat-user__action" do
+            %i.fa.fa-cog
+      %ul.chat_groups
+        %li.chat-group
+          = link_to '#',class: "chat-group__link" do
+            %p.chat-group__name
+              xxxxx
+            %p.chat-group__message
+              www
+    .chat-main
+      .chat-header.clearfix
+        .chat-header--left
+          %h2 group_name
+          %p.chat-header__users
+            Members:
+            %span.chat-header__user
+              user1
+            %span.chat-header__user
+              user2
+        .chat-header--right
+          = link_to 'Edit', '#',class: "chat-header__edit-btn"
+      .chat-body
+        %ul.chat-messages
+          %li.chat-message
+            .chat-message__header.clearfix
+              %p.chat-message__name
+                user1
+              %p.chat-message__time
+                timestamps
+            %p.chat-message__body
+              message
+      .chat-footer
+        = form_for [tmp_group ,@message] do |f|
+          = f.text_field :body, class: "textarea",autofocus: "", placeholder: "type a message", required: ""
+          = f.submit 'Send', class: "submit"
+          %i.fa.fa-file-image-o
