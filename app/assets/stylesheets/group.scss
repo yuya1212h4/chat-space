@@ -167,7 +167,6 @@ a{
   background-color: #ddd;
   &__body{
     float: left;
-    width: calc(100% - 115px);
     height: 50px;
     position: relative;
     &__file{
@@ -175,11 +174,32 @@ a{
       top: 0;
       right: 0;
       display: inline-block;
-      width: 40px;
       height: 50px;
       line-height: 50px;
       text-align: center;
       cursor: pointer;
     }
   }
+}
+
+.textarea{
+  width: calc(100% - 170px);
+}
+
+.submit{
+  float: right;
+  display: inline-block;
+  width: 100px;
+  margin-right: 10px;
+  line-height: 50px;
+  color: #fff;
+  background-color: #38aef0;
+  text-align: center;
+  border: none;
+  padding: 0;
+}
+
+.fa-file-image-o{
+  position: relative;
+  right: 50px;
 }
