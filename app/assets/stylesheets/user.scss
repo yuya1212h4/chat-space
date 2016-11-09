@@ -1,4 +1,12 @@
 .account-page {
+  &__inner--left{
+    float: left;
+    width: 50%;
+  }
+  &__inner--right {
+    float: right;
+    width: 50%;
+  }
   &__inner {
     width: 980px;
     margin: 60px auto;
@@ -7,16 +15,12 @@
     border: 1px solid #ddd;
     border-radius: 5px;
 
-    .account-page__inner--right {
-      float: left;
-      width: 50%;
-    }
-    &:after {
-      clear: both;
-      content: "";
-      display: block;
-    }
+  &:after {
+    clear: both;
+    content: "";
+    display: block;
   }
+}
 
   .account-page__header {
     h2 {
