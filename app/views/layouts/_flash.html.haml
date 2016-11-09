@@ -1,0 +1,6 @@
+- flash.each do |key, value|
+  - key = case key
+    - when "success" then "success"
+    - when "notice" then "info"
+    - when "alert" then "danger"
+  = content_tag :div, value, class: "alert alert-#{key}"
