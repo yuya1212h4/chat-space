@@ -41,14 +41,14 @@
   .chat-group-form__field {
     margin-top: 30px;
 
-    .chat-group-form__field--left {
+    &--left {
       float: left;
       width: 30%;
       padding-right: 20px;
       padding-left: 20px;
     }
 
-    .chat-group-form__field--right {
+    &--right {
       float: right;
       width: 70%;
     }
@@ -75,11 +75,11 @@
     font-size: 14px;
     border-bottom: 1px solid #ddd;
 
-    .chat-group-user__name {
+    &__name {
       float: left;
     }
 
-    .chat-group-user__btn {
+    &__btn {
       float: right;
       display: inline-block;
       cursor: pointer;
