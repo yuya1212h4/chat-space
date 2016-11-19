@@ -3,19 +3,19 @@
   .chat
     .chat-side
       .chat-user.clearfix
-        %h5 user
+        %h5
+          = current_user.name
         .chat-user__actions
-          = link_to '#', class: "chat-user__action" do
+          = link_to new_group_path, class: "chat-user__action" do
             %i.fa.fa-pencil-square-o
           = link_to edit_user_registration_path, class: "chat-user__action" do
             %i.fa.fa-cog
       %ul.chat_groups
         %li.chat-group
-          = link_to '#',class: "chat-group__link" do
-            %p.chat-group__name
-              xxxxx
-            %p.chat-group__message
-              www
+          - current_user.groups.each do |group|
+            = link_to '#',class: "chat-group__link" do
+              %p.chat-group__name
+                = group.name
     .chat-main
       .chat-header.clearfix
         .chat-header--left
@@ -27,7 +27,7 @@
             %span.chat-header__user
               user2
         .chat-header--right
-          = link_to 'Edit', '#',class: "chat-header__edit-btn"
+          = link_to 'Edit', edit_group_path(1),class: "chat-header__edit-btn"
       .chat-body
         %ul.chat-messages
           %li.chat-message
