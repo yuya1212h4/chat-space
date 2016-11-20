@@ -9,3 +9,8 @@
             = message.created_at
         %p.chat-message__body
           = message.body
+.chat-footer
+  = form_for [@group, @message], {url: {:action => 'create'}} do |f|
+    = f.text_field :body, class: 'textarea', autofocus: true, placeholder: 'type a message'
+    = f.submit 'Send', class: 'submit'
+    %i.fa.fa-file-image-o
