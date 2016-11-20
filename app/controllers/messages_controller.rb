@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
     if message.save
       redirect_to new_group_message_path(params[:group_id]), notice: "メッセージの投稿が完了しました。"
     else
-      redirect_to new_group_message_path(params[:group_id]), notice: "メッセージの送信に失敗しました。"
+      redirect_to new_group_message_path(params[:group_id]), alert: "メッセージの送信に失敗しました。"
     end
   end
 
