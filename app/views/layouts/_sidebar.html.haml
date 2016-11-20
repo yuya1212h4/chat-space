@@ -1,6 +1,15 @@
-%ul.chat_groups
-  %li.chat-group
-    - groups.each do |group|
-      = link_to new_group_message_path(group.id), class: 'chat-group__link' do
-        %p.chat-group__name
-          = group.name
+.chat-side
+  .chat-user.clearfix
+    %h5
+      = current_user.name
+    .chat-user__actions
+      = link_to new_group_path, class: 'chat-user__action' do
+        %i.fa.fa-pencil-square-o
+      = link_to edit_user_registration_path, class: 'chat-user__action' do
+        %i.fa.fa-cog
+  %ul.chat_groups
+    %li.chat-group
+      - groups.each do |group|
+        = link_to new_group_message_path(group.id), class: 'chat-group__link' do
+          %p.chat-group__name
+            = group.name
