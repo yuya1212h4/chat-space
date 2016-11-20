@@ -9,7 +9,7 @@
             %i.fa.fa-pencil-square-o
           = link_to edit_user_registration_path, class: 'chat-user__action' do
             %i.fa.fa-cog
-      = render 'layouts/sidebar'
+      = render partial:'layouts/sidebar', locals: {groups: current_user.groups}
     .chat-main
       .chat-header.clearfix
         .chat-header--left

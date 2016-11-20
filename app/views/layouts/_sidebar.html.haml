@@ -1,6 +1,6 @@
 %ul.chat_groups
   %li.chat-group
-    - current_user.groups.each do |group|
+    - groups.each do |group|
       = link_to new_group_message_path(group.id), class: 'chat-group__link' do
         %p.chat-group__name
           = group.name
