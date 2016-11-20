@@ -1,0 +1,45 @@
+.layout-notification
+  .chat
+    .chat-side
+      .chat-user.clearfix
+        %h5
+          = current_user.name
+        .chat-user__actions
+          = link_to new_group_path, class: "chat-user__action" do
+            %i.fa.fa-pencil-square-o
+          = link_to edit_user_registration_path, class: "chat-user__action" do
+            %i.fa.fa-cog
+      %ul.chat_groups
+        %li.chat-group
+          - current_user.groups.each do |group|
+            = link_to new_group_message_path(group.id),class: "chat-group__link" do
+              %p.chat-group__name
+                = group.name
+    .chat-main
+      .chat-header.clearfix
+        .chat-header--left
+          %h2 group_name
+          %p.chat-header__users
+            Members:
+            %span.chat-header__user
+              user1
+            %span.chat-header__user
+              user2
+        .chat-header--right
+          = link_to 'Edit', edit_group_path(params[:group_id]),class: "chat-header__edit-btn"
+      .chat-body
+        %ul.chat-messages
+          %li.chat-message
+            - @messages.each do |message|
+              .chat-message__header.clearfix
+                %p.chat-message__name
+                  user1
+                %p.chat-message__time
+                  = message.created_at
+              %p.chat-message__body
+                = message.body
+      .chat-footer
+        = form_for [@group, @message], :url => {:action => 'create'} do |f|
+          = f.text_field :body, class: "textarea",autofocus: "", placeholder: "type a message"
+          = f.submit 'Send', class: "submit"
+          %i.fa.fa-file-image-o
