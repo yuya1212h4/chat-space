@@ -8,7 +8,7 @@
         = f.text_field :name, class: "textarea",autofocus: true,placeholder: @group.name
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
-        %label.chat-group-form__label{:for => "chat_group_チャットメンバーを追加"} チャットメンバーを追加
+        = f.label "チャットメンバーを追加" ,class: 'chat-group-form__label'
       .chat-group-form__field--right
         .chat-group-form__search.clearfix
           = f.collection_check_boxes( :user_ids, User.all, :id, :name)
