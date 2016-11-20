@@ -9,11 +9,10 @@ class GroupsController < ApplicationController
 
   def create
     group = Group.new(group_params)
-    if group.present?
-        group.save
-        redirect_to root_path, notice: "グループの作成が完了しました。"
-      else
-        redirect_to root_path, notice: "グループの作成に失敗しました。"
+    if group.save
+      redirect_to root_path, notice: "グループの作成が完了しました。"
+    else
+      redirect_to root_path, notice: "グループの作成に失敗しました。"
     end
   end
 

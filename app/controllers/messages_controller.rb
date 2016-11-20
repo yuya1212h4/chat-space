@@ -6,11 +6,10 @@ class MessagesController < ApplicationController
 
   def create
     message = current_user.messages.new(message_params)
-    if message.present?
-      message.save
-        redirect_to new_group_message_path(params[:group_id]), notice: "メッセージの投稿が完了しました。"
-      else
-        redirect_to new_group_message_path(params[:group_id]), notice: "メッセージの送信に失敗しました。"
+    if message.save
+      redirect_to new_group_message_path(params[:group_id]), notice: "メッセージの投稿が完了しました。"
+    else
+      redirect_to new_group_message_path(params[:group_id]), notice: "メッセージの送信に失敗しました。"
     end
   end
 
