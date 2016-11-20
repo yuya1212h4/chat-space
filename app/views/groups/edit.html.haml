@@ -3,17 +3,17 @@
   = form_for @group do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
-        = f.label "グループ名" ,class: 'chat-group-form__label'
+        = f.label 'グループ名', class: 'chat-group-form__label'
       .chat-group-form__field--right
-        = f.text_field :name, class: "chat-group-form__input", autofocus: true, placeholder: @group.name
+        = f.text_field :name, class: 'chat-group-form__input', autofocus: true, placeholder: @group.name
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
-        = f.label "チャットメンバーを追加" ,class: 'chat-group-form__label'
+        = f.label 'チャットメンバーを追加', class: 'chat-group-form__label'
       .chat-group-form__field--right
         .chat-group-form__search.clearfix
-          = f.collection_check_boxes( :user_ids, User.all, :id, :name)
+          = f.collection_check_boxes(:user_ids, User.all, :id, :name)
         #user-search-result
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         .chat-group-form__field--right
-          = f.submit 'Save' ,class: "submit"
+          = f.submit 'Save', class: 'submit'

@@ -1,15 +1,14 @@
 .chat-group-form
   %h1 新規チャットグループ
   = form_for @group do |f|
-    %input{:name => "utf8", :type => "hidden", :value => "✓"}/
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
-        = f.label "グループ名" ,class: 'chat-group-form__label'
+        = f.label 'グループ名', class: 'chat-group-form__label'
       .chat-group-form__field--right
-        = f.text_field :name, class: "chat-group-form__input", autofocus: true, placeholder: "グループ名を入力してください"
+        = f.text_field :name, class: 'chat-group-form__input', autofocus: true, placeholder: 'グループ名を入力してください'
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
-        = f.label "チャットメンバー" ,class: 'chat-group-form__label'
+        = f.label 'チャットメンバー', class: 'chat-group-form__label'
       .chat-group-form__field--right
         #chat-group-users
           #chat-group-user-22.chat-group-user.clearfix
@@ -17,4 +16,4 @@
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
-        = f.submit 'Save' ,class: "submit"
+        = f.submit 'Save', class: 'submit'
