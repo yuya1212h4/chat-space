@@ -1,6 +1,5 @@
 class GroupsController < ApplicationController
-  protect_from_forgery :except => ["edit"]
-
+  
   def index
   end
 
