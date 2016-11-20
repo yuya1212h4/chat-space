@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    message = Message.new(body: message_params[:body], user_id: current_user.id, group_id: params[:group_id])
+    message = current_user.messages.new(message_params)
     if message.present?
       message.save
         redirect_to new_group_message_path(params[:group_id]), notice: "メッセージの投稿が完了しました。"
@@ -17,6 +17,6 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-      params.require(:message).permit(:body)
+    params.require(:message).permit(:body).merge(group_id: params[:group_id])
   end
 end
