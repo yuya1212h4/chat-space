@@ -5,7 +5,7 @@
       .chat-group-form__field--left
         = f.label "グループ名" ,class: 'chat-group-form__label'
       .chat-group-form__field--right
-        = f.text_field :name, class: "textarea",autofocus: "",placeholder: @group.name
+        = f.text_field :name, class: "textarea",autofocus: true,placeholder: @group.name
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         %label.chat-group-form__label{:for => "chat_group_チャットメンバーを追加"} チャットメンバーを追加
