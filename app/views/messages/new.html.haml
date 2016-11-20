@@ -17,7 +17,7 @@
         %ul.chat-messages
           = render partial: 'layouts/messages', collection: @messages
       .chat-footer
-        = form_for [@group, @message], {url: {:action => 'create'}} do |f|
+        = form_for [@group, @message] do |f|
           = f.text_field :body, class: 'textarea', autofocus: true, placeholder: 'type a message'
           = f.submit 'Send', class: 'submit'
           %i.fa.fa-file-image-o
