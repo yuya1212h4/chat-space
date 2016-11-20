@@ -3,7 +3,7 @@
   = form_for @group do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
-        %label.chat-group-form__label{:for => "chat_group_name"} グループ名
+        = f.label "グループ名" ,class: 'chat-group-form__label'
       .chat-group-form__field--right
         = f.text_field :name, class: "textarea",autofocus: "",placeholder: @group.name
     .chat-group-form__field.clearfix
