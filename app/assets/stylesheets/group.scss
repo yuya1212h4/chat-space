@@ -1,3 +1,6 @@
+$red: #f05050;
+$blue: #38aef0;
+
 .chat-group-form {
   width: 980px;
   margin: 60px auto;
@@ -21,7 +24,7 @@
 
     h2 {
       margin-bottom: 10px;
-      color: #f05050;
+      color: $red;
       font-size: 14px;
     }
 
@@ -85,11 +88,11 @@
       cursor: pointer;
 
       &.chat-group-user__btn--add {
-        color: #38aef0;
+        color: $blue;
       }
 
       &.chat-group-user__btn--remove {
-        color: #f05050;
+        color: $red;
       }
     }
   }
@@ -98,7 +101,7 @@
     display: inline-block;
     padding: 12px 20px;
     color: #fff;
-    background-color: #38aef0;
+    background-color: $blue;
     border: 0;
   }
 }
