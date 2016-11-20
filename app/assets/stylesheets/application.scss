@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "./reset";
+@import "reset";
+@import "variable";
 @import "./chat";
 @import "./chatspace";
 @import "./user";
