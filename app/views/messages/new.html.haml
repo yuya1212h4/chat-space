@@ -5,11 +5,11 @@
         %h5
           = current_user.name
         .chat-user__actions
-          = link_to new_group_path, class: "chat-user__action" do
+          = link_to new_group_path, class: 'chat-user__action' do
             %i.fa.fa-pencil-square-o
-          = link_to edit_user_registration_path, class: "chat-user__action" do
+          = link_to edit_user_registration_path, class: 'chat-user__action' do
             %i.fa.fa-cog
-      = render "layouts/sidebar"
+      = render 'layouts/sidebar'
     .chat-main
       .chat-header.clearfix
         .chat-header--left
@@ -21,10 +21,10 @@
             %span.chat-header__user
               user2
         .chat-header--right
-          = link_to 'Edit', edit_group_path(params[:group_id]),class: "chat-header__edit-btn"
-      = render "layouts/messages"
+          = link_to 'Edit', edit_group_path(params[:group_id]), class: 'chat-header__edit-btn'
+      = render 'layouts/messages'
       .chat-footer
-        = form_for [@group, @message], :url => {:action => 'create'} do |f|
-          = f.text_field :body, class: "textarea",autofocus: true, placeholder: "type a message"
-          = f.submit 'Send', class: "submit"
+        = form_for [@group, @message], {url: {:action => 'create'}} do |f|
+          = f.text_field :body, class: 'textarea', autofocus: true, placeholder: 'type a message'
+          = f.submit 'Send', class: 'submit'
           %i.fa.fa-file-image-o
