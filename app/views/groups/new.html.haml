@@ -1,6 +1,6 @@
 .chat-group-form
   %h1 新規チャットグループ
-  =form_for [@group] do |f|
+  = form_for [@group] do |f|
     %input{:name => "utf8", :type => "hidden", :value => "✓"}/
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
@@ -13,12 +13,8 @@
       .chat-group-form__field--right
         #chat-group-users
           #chat-group-user-22.chat-group-user.clearfix
-            = collection_check_boxes(:users, :user_id, User.all, :id, :name) do |user|
-              = user.label { user.check_box + user.text}
-            -# %input{:name => "chat_group[user_ids][]", :type => "hidden", :value => "22"}/
-            -# %p.chat-group-user__name seo_kyohei
+            = f.collection_check_boxes( :user_ids, User.all, :id, :name) 
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
         %input.chat-group-form__action-btn{"data-disable-with" => "Save", :name => "commit", :type => "submit", :value => "Save"}/
-        -# - binding.pry
