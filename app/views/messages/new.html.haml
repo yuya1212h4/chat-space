@@ -9,12 +9,7 @@
             %i.fa.fa-pencil-square-o
           = link_to edit_user_registration_path, class: "chat-user__action" do
             %i.fa.fa-cog
-      %ul.chat_groups
-        %li.chat-group
-          - current_user.groups.each do |group|
-            = link_to new_group_message_path(group.id),class: "chat-group__link" do
-              %p.chat-group__name
-                = group.name
+      = render "layouts/sidebar"
     .chat-main
       .chat-header.clearfix
         .chat-header--left
