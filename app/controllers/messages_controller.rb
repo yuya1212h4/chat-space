@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
   def new
-    @message = Message.new
-    @messages = Message.all
+    @group = Group.find(params[:group_id])
+    @message = @group.messages.new
+    @messages = @group.messages.all
   end
 
   def create
