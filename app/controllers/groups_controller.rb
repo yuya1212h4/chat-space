@@ -12,7 +12,8 @@ class GroupsController < ApplicationController
     if group.save
       redirect_to root_path, notice: "グループの作成が完了しました。"
     else
-      redirect_to root_path, alert: "グループの作成に失敗しました。"
+      session[:name] = params[:group][:name]
+      redirect_to :back, alert: "グループの作成に失敗しました。"
     end
   end
 
