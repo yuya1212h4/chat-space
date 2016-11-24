@@ -96,7 +96,7 @@
   .field-label {
     .field_with_errors {
       display: inline-block;
-      color: $color;
+      color: $orange;
       font-weight: 400;
     }
   }
@@ -113,7 +113,7 @@
         right: 0;
         bottom: 0;
         width: 5px;
-        background-color: $color;
+        background-color: $orange;
       }
     }
   }
@@ -127,7 +127,7 @@
 
   h2 {
     margin-bottom: 10px;
-    color: $color;
+    color: $orange;
     font-size: 14px;
   }
 
