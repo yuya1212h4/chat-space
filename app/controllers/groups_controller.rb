@@ -18,11 +18,11 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = info_group
+    @group = set_group
   end
 
   def update
-    info_group.update(group_params)
+    set_group.update(group_params)
     redirect_to new_group_message_path(params[:id])
   end
 
@@ -32,7 +32,7 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, { user_ids: [] })
   end
 
-  def info_group
+  def set_group
     Group.find(params[:id])
   end
 
