@@ -1,10 +1,10 @@
 class GroupsController < ApplicationController
+  before_action :set_group
 
   def index
   end
 
   def new
-    @group = Group.new
   end
 
   def create
@@ -18,7 +18,6 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = set_group
   end
 
   def update
@@ -33,7 +32,6 @@ class GroupsController < ApplicationController
   end
 
   def set_group
-    Group.find(params[:id])
+    params[:id].nil? ? @group = Group.new : @group = Group.find(params[:id])
   end
-
 end
