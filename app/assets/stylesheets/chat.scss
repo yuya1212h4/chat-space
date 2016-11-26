@@ -16,7 +16,7 @@
 
 .chat-user {
   padding: 20px;
-  color: #fff;
+  color: $white;
   background-color: #253141;
   h5 {
     float: left;
@@ -35,7 +35,7 @@
     display: inline-block;
     margin: 15px 0 15px 3px;
     line-height: 28px;
-    color: #fff;
+    color: $white;
     font-size: 20px;
   }
 }
@@ -56,7 +56,7 @@
   &__link{
     display: block;
     padding: 20px 20px;
-    color: #fff;
+    color: $white;
   }
   &__name{
     display: inline-block;
@@ -84,7 +84,7 @@ a{
 .chat-header{
   padding-right: 40px;
   padding-left: 40px;
-  background-color: #fff;
+  background-color: $white;
   border-bottom: 1px solid #eee;
     &--left{
       float: left;
@@ -183,7 +183,7 @@ a{
   width: 100px;
   margin-right: 10px;
   line-height: 50px;
-  color: #fff;
+  color: $white;
   background-color: #38aef0;
   text-align: center;
   border: none;
