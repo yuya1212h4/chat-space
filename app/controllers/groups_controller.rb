@@ -21,8 +21,13 @@ class GroupsController < ApplicationController
   end
 
   def update
-    set_group.update(group_params)
-    redirect_to new_group_message_path(params[:id])
+    group = set_group.update(group_params)
+    if group
+      redirect_to new_group_message_path(params[:id]), notice: "グループの更新が完了しました。"
+    else
+      session[:name] = params[:group][:name]
+      redirect_to :back, alert: "グループの更新に失敗しました。"
+    end
   end
 
   private
