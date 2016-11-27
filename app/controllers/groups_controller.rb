@@ -1,11 +1,13 @@
 class GroupsController < ApplicationController
-  before_action :set_group
+  before_action :set_group, only: [:new, :create]
+  before_action :set_on_group, only: [:edit, :update]
 
   def index
     render "sidebar/_sidebar_top"
   end
 
   def new
+    @group = Group.new
   end
 
   def create
@@ -38,6 +40,10 @@ class GroupsController < ApplicationController
   end
 
   def set_group
-    params[:id].nil? ? @group = Group.new : @group = Group.find(params[:id])
+    @group = Group.new
+  end
+
+  def set_on_group
+    @group = Group.find(params[:id])
   end
 end
