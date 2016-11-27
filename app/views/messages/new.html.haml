@@ -1,15 +1,6 @@
 .layout-notification
   .chat
-    .chat-side
-      .chat-user.clearfix
-        %h5
-          = current_user.name
-        .chat-user__actions
-          = link_to new_group_path, class: 'chat-user__action' do
-            %i.fa.fa-pencil-square-o
-          = link_to edit_user_registration_path, class: 'chat-user__action' do
-            %i.fa.fa-cog
-      = render partial:'layouts/sidebar', collection: current_user.groups, as: "group"
+    = render 'sidebar/sidebar_top'
     .chat-main
       .chat-header.clearfix
         .chat-header--left
