@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
   before_action :set_group
 
   def index
+    render "sidebar/_sidebar_top"
   end
 
   def new
