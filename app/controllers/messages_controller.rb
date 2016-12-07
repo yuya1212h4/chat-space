@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
       render 'new'
     else
       flash.now[:alert] = "メッセージの送信に失敗しました。"
-      render template: 'messages/new'
+      render 'messages/new'
     end
   end
 
