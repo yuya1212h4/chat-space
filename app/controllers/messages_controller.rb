@@ -1,16 +1,18 @@
 class MessagesController < ApplicationController
+  before_action :set_message
+  before_action :set_on_group
+
   def new
-    @group = Group.find(params[:group_id])
-    @message = Message.new
-    @messages = @group.messages
   end
 
   def create
     message = current_user.messages.new(message_params)
     if message.save
-      redirect_to new_group_message_path(params[:group_id]), notice: "メッセージの投稿が完了しました。"
+      flash.now[:notice] = "メッセージの投稿が完了しました。"
+      render 'new'
     else
-      redirect_to new_group_message_path(params[:group_id]), alert: "メッセージの送信に失敗しました。"
+      flash.now[:alert] = "メッセージの送信に失敗しました。"
+      render template: 'messages/new'
     end
   end
 
@@ -18,5 +20,13 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:body).merge(group_id: params[:group_id])
+  end
+
+  def set_message
+    @message = Message.new
+  end
+
+  def set_on_group
+    @group = Group.find(params[:group_id])
   end
 end
