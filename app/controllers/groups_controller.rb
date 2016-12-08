@@ -10,11 +10,10 @@ class GroupsController < ApplicationController
   end
 
   def create
-    group = Group.new(group_params)
-    if group.save
-      redirect_to new_group_message_path(group.id), notice: "グループの作成が完了しました。"
+    @group = Group.new(group_params)
+    if @group.save
+      redirect_to new_group_message_path(@group.id), notice: "グループの作成が完了しました。"
     else
-      session[:name] = params[:group][:name]
       redirect_to :back, alert: "グループの作成に失敗しました。"
     end
   end
@@ -23,11 +22,10 @@ class GroupsController < ApplicationController
   end
 
   def update
-    group = set_group.update(group_params)
-    if group
+    @group = set_on_group.update(group_params)
+    if @group
       redirect_to new_group_message_path(params[:id]), notice: "グループの更新が完了しました。"
     else
-      session[:name] = params[:group][:name]
       redirect_to :back, alert: "グループの更新に失敗しました。"
     end
   end
