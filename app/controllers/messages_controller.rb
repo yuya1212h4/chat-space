@@ -8,8 +8,7 @@ class MessagesController < ApplicationController
   def create
     message = current_user.messages.new(message_params)
     if message.save
-      flash.now[:notice] = "メッセージの投稿が完了しました。"
-      render 'new'
+      redirect_to new_group_message_path(@group), notice: "メッセージの投稿が完了しました。"
     else
       flash.now[:alert] = "メッセージの送信に失敗しました。"
       render 'messages/new'
