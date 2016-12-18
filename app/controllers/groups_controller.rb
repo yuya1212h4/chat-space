@@ -12,7 +12,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to new_group_message_path(@group.id), notice: "グループの作成が完了しました。"
+      redirect_to new_group_message_path(@group), notice: "グループの作成が完了しました。"
     else
       redirect_to :back, alert: "グループの作成に失敗しました。"
     end
