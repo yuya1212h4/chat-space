@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:new, :create]
-  before_action :set_on_group, only: [:edit, :update]
+  before_action :set_new_group, only: [:new, :create]
+  before_action :set_group, only: [:edit, :update]
 
   def index
     render "sidebar/_sidebar_top"
@@ -36,11 +36,11 @@ class GroupsController < ApplicationController
     params.require(:group).permit(:name, user_ids: [] )
   end
 
-  def set_group
+  def set_new_group
     @group = Group.new
   end
 
-  def set_on_group
+  def set_group
     @group = Group.find(params[:id])
   end
 end
