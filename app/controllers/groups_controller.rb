@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_new_group, only: [:new, :create]
+  before_action :set_new_group, only: :new
   before_action :set_group, only: [:edit, :update]
 
   def index
