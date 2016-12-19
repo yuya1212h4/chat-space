@@ -22,7 +22,7 @@ class GroupsController < ApplicationController
   end
 
   def update
-    @group = set_on_group.update(group_params)
+    @group.update(group_params)
     if @group
       redirect_to new_group_message_path(params[:id]), notice: "グループの更新が完了しました。"
     else
