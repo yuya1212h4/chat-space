@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
       redirect_to new_group_message_path(@group), notice: "メッセージの投稿が完了しました。"
     else
       flash.now[:alert] = "メッセージの送信に失敗しました。"
-      render 'messages/new'
+      render :new
     end
   end
 
