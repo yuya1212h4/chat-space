@@ -1,0 +1,19 @@
+.chat-group-form
+  %h1 新規チャットグループ
+  = form_for @group do |f|
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        = f.label 'グループ名', class: 'chat-group-form__label'
+      .chat-group-form__field--right
+        = f.text_field :name, class: 'chat-group-form__input', autofocus: true, value: "#{session[:name]}"
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        = f.label 'チャットメンバー', class: 'chat-group-form__label'
+      .chat-group-form__field--right
+        #chat-group-users
+          #chat-group-user-22.chat-group-user.clearfix
+            = f.collection_check_boxes(:user_ids, User.all, :id, :name)
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+      .chat-group-form__field--right
+        = f.submit 'Save', class: 'submit-save'

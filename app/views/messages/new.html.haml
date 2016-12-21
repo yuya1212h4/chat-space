@@ -1,0 +1,23 @@
+.layout-notification
+  .chat
+    = render 'sidebar/sidebar_top'
+    .chat-main
+      .chat-header.clearfix
+        .chat-header--left
+          %h2 group_name
+          %p.chat-header__users
+            Members:
+            %span.chat-header__user
+              user1
+            %span.chat-header__user
+              user2
+        .chat-header--right
+          = link_to 'Edit', edit_group_path(@group), class: 'chat-header__edit-btn'
+      .chat-body
+        %ul.chat-messages
+          = render @group.messages
+      .chat-footer
+        = form_for [@group, @message] do |f|
+          = f.text_field :body, class: 'textarea', autofocus: true, placeholder: 'type a message'
+          = f.submit 'Send', class: 'submit-save'
+          %i.fa.fa-file-image-o
