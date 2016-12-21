@@ -1,8 +1,8 @@
 class MessagesController < ApplicationController
-  before_action :set_new_message, only: :new
   before_action :set_group
 
   def new
+    @message = Message.new
   end
 
   def create
@@ -19,10 +19,6 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:body).merge(group_id: params[:group_id])
-  end
-
-  def set_new_message
-    @message = Message.new
   end
 
   def set_group
