@@ -1,7 +1,7 @@
 %li.chat-message
   .chat-message__header.clearfix
     %p.chat-message__name
-      user1
+      = current_user.name
     %p.chat-message__time
       = message.created_at
   %p.chat-message__body

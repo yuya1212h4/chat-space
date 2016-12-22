@@ -3,3 +3,5 @@
     = link_to new_group_message_path(group), class: 'chat-group__link' do
       %p.chat-group__name
         = group.name
+      %p.chat-group__message
+        = group.messages.last.body if group.messages.present?
