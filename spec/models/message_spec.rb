@@ -1,17 +1,16 @@
 require 'rails_helper'
-describe Message do
+describe Message, type: :model do
   describe '#create' do
 
-    it "is invalid without a message" do
-      message = Message.new(body: "")
-      message.valid?
-      expect(message.errors[:body]).to include("translation missing: ja.activerecord.errors.models.message.attributes.body.blank")
+    it "is effective with a message" do
+      message = build(:message)
+      expect(message).to be_valid
     end
 
-    it "is effective with a message" do
-      message = Message.new(body: "test")
+    it "is invalid without a message" do
+      message = build(:message, body: "")
       message.valid?
-      expect(message.errors[:body]).to include()
+      expect(message.errors[:body]).to include("を入力してください")
     end
 
   end
