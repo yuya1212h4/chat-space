@@ -26,9 +26,7 @@ gem 'devise'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'font-awesome-sass'
-gem 'pry-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'faker'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -45,6 +43,8 @@ group :development, :test do
   gem 'rspec-rails', "~> 3.5.0"
   gem 'factory_girl_rails', "~> 4.4.1"
   gem 'rails-controller-testing', require: false
+  gem 'faker'
+  gem 'pry-rails'
 end
 
 group :development do
