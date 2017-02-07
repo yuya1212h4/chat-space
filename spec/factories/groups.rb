@@ -1,9 +1,8 @@
 FactoryGirl.define do
-
   factory :group do
     name          "test"
-    user_id       "1"
-    created_at    { Faker::Business.credit_card_expiry_date }
-    updated_at    { Faker::Business.credit_card_expiry_date }
+    user_id       1
+    created_at    { DateTime.now }
+    updated_at    { DateTime.now }
   end
 end
