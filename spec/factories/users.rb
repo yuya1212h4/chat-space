@@ -3,7 +3,8 @@ FactoryGirl.define do
     name          { Faker::Name.name }
     email         { Faker::Internet.email }
     password      { Faker::Internet.password(8)}
-    created_at    { Faker::Business.credit_card_expiry_date }
-    updated_at    { Faker::Business.credit_card_expiry_date }
+    password_confirmation { password }
+    created_at    { DateTime.now }
+    updated_at    { DateTime.now }
   end
 end
