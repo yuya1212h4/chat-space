@@ -1,19 +1,20 @@
 $(function() {
   function buildHTML(message) {
-    var html =
-      '<li class = "chat-message">' +
-      '<div class = "chat-message__header clearfix">' +
-      '<div class = "chat-message__name">' +
-      message.name +
-      '</div>' +
-      '<div class = "chat-message__time">' +
-      message.created_at +
-      '</div>' +
-      '</div>' +
-      '<div class = "chat-message__body">' +
-      message.body +
-      '</div>' +
-      '</li>';
+    var html = `
+      <li class = "chat-message">
+      <div class = "chat-message__header clearfix">
+      <div class = "chat-message__name">
+      ${message.name}
+      </div>
+      <div class = "chat-message__time">
+      ${message.created_at}
+      </div>
+      </div>
+      <div class = "chat-message__body">
+      ${message.body}
+      </div>
+      </li>
+      `;
     return html;
   }
 
