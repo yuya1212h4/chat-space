@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
-      redirect_to new_group_message_path(params[:id]), notice: 'グループの更新が完了しました。'
+      redirect_to new_group_message_path(@group), notice: 'グループの更新が完了しました。'
     else
       redirect_to :back, alert: 'グループの更新に失敗しました。'
     end
