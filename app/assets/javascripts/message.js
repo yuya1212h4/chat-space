@@ -20,11 +20,11 @@ $(function() {
 
   $('.new_message').on('submit', function(e) {
     e.preventDefault();
-    var textField = $('.textarea');
+    var textField = $('#message_body');
     var message = textField.val();
     $.ajax({
       type: 'POST',
-      url: '../messages.json',
+      url: '../messages',
       data: {
         message: {
           body: textField.val(),
@@ -40,5 +40,6 @@ $(function() {
     .fail(function() {
       alert('error');
     });
+    return false;
   });
 });
