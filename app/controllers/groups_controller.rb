@@ -26,7 +26,8 @@ class GroupsController < ApplicationController
     if @group.update(group_params)
       redirect_to new_group_message_path(@group), notice: 'グループの更新が完了しました。'
     else
-      redirect_to :back, alert: 'グループの更新に失敗しました。'
+      flash.now[:alert] = 'グループの更新に失敗しました。'
+      render :edit
     end
   end
 
