@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
         format.json
       end
     else
-      flash.now[:alert] = 'メッセージの送信に失敗しました。'
+      flash[:alert] = 'メッセージの送信に失敗しました。'
       render :new
     end
   end
