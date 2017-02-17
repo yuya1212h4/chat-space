@@ -1,10 +1,8 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "variable";
+@import "flash-messages";
+@import "base/chat", "base/chatspace";
+@import "user";
+@import "group";
 @import "reset";
-@import "./chat";
-@import "./chatspace";
-@import "./user";
-@import "./group";
-@import "./font-awesome-sprockets";
-@import "./font-awesome";

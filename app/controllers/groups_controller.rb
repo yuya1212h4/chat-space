@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update]
 
   def index
-    render 'sidebar/_sidebar_top'
+    render 'layouts/_sidebar'
   end
 
   def new
@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to new_group_message_path(@group), notice: 'グループの作成が完了しました。'
     else
-      flash.now[:alert] = 'グループの作成に失敗しました。'
+      flash[:alert] = 'グループの作成に失敗しました。'
       render :new
     end
   end
@@ -24,9 +24,10 @@ class GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
-      redirect_to new_group_message_path(params[:id]), notice: 'グループの更新が完了しました。'
+      redirect_to new_group_message_path(@group), notice: 'グループの更新が完了しました。'
     else
-      redirect_to :back, alert: 'グループの更新に失敗しました。'
+      flash.now[:alert] = 'グループの更新に失敗しました。'
+      render :edit
     end
   end
 
