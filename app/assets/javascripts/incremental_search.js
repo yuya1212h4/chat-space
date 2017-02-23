@@ -29,7 +29,7 @@ $(function(){
   }
 
   function searchUsers() {
-    var name = $('#inc_search').val();
+    var name = $(this).val();
     $.ajax({
       type: 'GET',
       url: '/users/search',
