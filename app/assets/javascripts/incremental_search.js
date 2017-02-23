@@ -71,6 +71,6 @@ $(function(){
     var $this = $(this);
     var id = $this.data('user-id');
 
-    $('#chat-group-user-' + id).remove();
+    $(`#chat-group-user-${id}`).remove();
   })
 });
