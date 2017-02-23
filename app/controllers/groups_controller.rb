@@ -9,6 +9,13 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
+  def search
+    @users = User.where('name LIKE(?)',"%#{search_params[:name]}%")
+    respond_to do |format|
+      format.json
+    end
+  end
+
   def create
     @group = Group.new(group_params)
     if @group.save
@@ -39,5 +46,9 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
+  end
+
+  def search_params
+    params.permit(:name)
   end
 end
