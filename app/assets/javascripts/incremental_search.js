@@ -32,7 +32,7 @@ $(function(){
     var name = $('#inc_search').val();
     $.ajax({
       type: 'GET',
-      url: '/search',
+      url: '/users/search',
       data: {
         name: name,
       },
