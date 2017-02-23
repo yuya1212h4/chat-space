@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:new, :create]
   end
 
-  namespace :users do
-    get 'search'
+  resources :users, only: [] do
+    get 'search', on: :collection
   end
 end
