@@ -55,10 +55,8 @@ $(function(){
   $('#inc_search').on('keyup', searchUsers);
 
   $('.chat-group-form').on('click', '.user-search-add', function(){
-
-    var $this = $(this);
-    var id = $this.data('user-id');
-    var name = $this.data('user-name');
+    var id = $(this).data('user-id');
+    var name = $(this).data('user-name');
     var user = $(this).parent();
     var insertHTML = buildAddUserHTML(id, name);
 
@@ -68,8 +66,7 @@ $(function(){
   });
 
   $('#chat-group-users').on('click', '.user-search-remove', function(){
-    var $this = $(this);
-    var id = $this.data('user-id');
+    var id = $(this).data('user-id');
 
     $(`#chat-group-user-${id}`).remove();
   })
