@@ -22,14 +22,13 @@ $(function() {
     e.preventDefault();
     var textField = $('#message_body');
     var message = textField.val();
+    var formData = new FormData($(this).get(0));
     $.ajax({
       type: 'POST',
       url: '../messages',
-      data: {
-        message: {
-          body: textField.val(),
-        }
-      },
+      data: formData,
+      processData: false,
+      contentType: false,
       dataType: 'json'
     })
     .done(function(message) {
