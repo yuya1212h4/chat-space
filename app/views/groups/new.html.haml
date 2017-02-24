@@ -5,14 +5,20 @@
       .chat-group-form__field--left
         = f.label 'グループ名', class: 'chat-group-form__label'
       .chat-group-form__field--right
-        = f.text_field :name, class: 'chat-group-form__input', autofocus: true, value: "#{session[:name]}"
+        = f.text_field :name, class: 'chat-group-form__input', autofocus: true, value: "#{session[:name]}", placeholder: 'グループ名を入力して下さい'
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        = f.label 'チャットメンバーを追加', class: 'chat-group-form__label'
+      .chat-group-form__field--right
+        = text_field_tag :search, "", id: "inc_search",  class: 'chat-group-form__input', name: 'keyword',  autofocus: true, placeholder: '追加したいユーザー名を入力して下さい'
+        #user-search-result
+
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label 'チャットメンバー', class: 'chat-group-form__label'
       .chat-group-form__field--right
         #chat-group-users
-          #chat-group-user-22.chat-group-user.clearfix
-            = f.collection_check_boxes(:user_ids, User.all, :id, :name)
+
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right

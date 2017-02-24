@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :groups, only: [:new, :create, :edit, :update], shallow: true do
     resources :messages, only: [:new, :create]
   end
+
+  resources :users, only: [] do
+    get 'search', on: :collection
+  end
 end
