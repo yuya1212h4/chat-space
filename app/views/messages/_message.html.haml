@@ -6,4 +6,5 @@
       = l message.created_at
   %p.chat-message__body
     = message.body
-  = image_tag message.image.url
+  - if message.image.present?
+    = image_tag message.image.url
