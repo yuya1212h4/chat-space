@@ -1,5 +1,13 @@
 $(function() {
   function buildHTML(message) {
+    if (message.image) {
+      var image = `
+        <img src = "${message.image}">
+      `;
+    } else {
+      var image = "";
+    }
+
     var html = `
       <li class = "chat-message">
         <div class = "chat-message__header clearfix">
@@ -13,6 +21,7 @@ $(function() {
         <div class = "chat-message__body">
           ${message.body}
         </div>
+          ${image}
       </li>
       `;
     return html;
