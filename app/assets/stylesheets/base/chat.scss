@@ -194,3 +194,7 @@ a{
   position: relative;
   right: 50px;
 }
+
+#message_image[type="file"] {
+ display: none;
+}

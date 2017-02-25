@@ -1,5 +1,7 @@
 $(function() {
   function buildHTML(message) {
+    var image = (message.image) ? `<img src = ${message.image}>` : "";
+
     var html = `
       <li class = "chat-message">
         <div class = "chat-message__header clearfix">
@@ -13,6 +15,7 @@ $(function() {
         <div class = "chat-message__body">
           ${message.body}
         </div>
+          ${image}
       </li>
       `;
     return html;
@@ -22,14 +25,13 @@ $(function() {
     e.preventDefault();
     var textField = $('#message_body');
     var message = textField.val();
+    var formData = new FormData($(this).get(0));
     $.ajax({
       type: 'POST',
       url: '../messages',
-      data: {
-        message: {
-          body: textField.val(),
-        }
-      },
+      data: formData,
+      processData: false,
+      contentType: false,
       dataType: 'json'
     })
     .done(function(message) {
