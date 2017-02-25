@@ -9,14 +9,17 @@ CarrierWave.configure do |config|
     aws_secret_access_key: ENV['SECRET_ACCESS_KEY'],
     region: 'ap-northeast-1'
   }
-  config.storage = :fog
 
     case Rails.env
     when 'development'
         config.fog_directory  = 'sample-test-yuya1212'
-        config.asset_host = 'https://s3.amazonaws.com/sample-test-yuya1212'
+        config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/sample-test-yuya1212'
     when 'production'
         config.fog_directory  = 'sample-test-yuya1212'
-        config.asset_host = 'https://s3.amazonaws.com/sample-test-yuya1212'
+        config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/sample-test-yuya1212'
+    when 'test'
+        config.storage :file
     end
 end
+
+CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
