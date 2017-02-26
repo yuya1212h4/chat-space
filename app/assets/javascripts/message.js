@@ -44,4 +44,29 @@ $(function() {
     });
     return false;
   });
+
+  function getMessage(){
+
+      $.ajax({
+        type: 'GET',
+        url: '',
+        dataType: 'json'
+      })
+      .done(function(message) {
+        var insertHTML = '';
+        $('.chat-messages').empty();
+        message.forEach(function(message){
+          insertHTML += buildHTML(message);
+        });
+        $('.chat-messages').html(insertHTML);
+      })
+      .fail(function(){
+        alert('error');
+      });
+    }
+
+    function autoReload(){
+      getMessage();
+    }
+    setInterval(autoReload, 10000);
 });
