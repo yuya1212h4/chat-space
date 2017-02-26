@@ -3,6 +3,10 @@ class MessagesController < ApplicationController
   def new
     @message = Message.new
     @group = Group.find(params[:group_id])
+    respond_to do |format|
+      format.any
+      format.json
+    end
   end
 
   def create
