@@ -26,6 +26,7 @@ gem 'devise'
 gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'carrierwave'
+gem 'fog'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
