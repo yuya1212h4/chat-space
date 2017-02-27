@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
     @message = Message.new
     @group = Group.find(params[:group_id])
     respond_to do |format|
-      format.any
+      format.html
       format.json
     end
   end
