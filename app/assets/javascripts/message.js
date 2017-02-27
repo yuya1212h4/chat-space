@@ -38,6 +38,9 @@ $(function() {
       var html = buildHTML(message);
       $('.chat-messages').append(html);
       textField.val('');
+      $('.chat-body').animate({
+        scrollTop: $('.chat-messages').height()
+      });
     })
     .fail(function() {
       alert('error');
