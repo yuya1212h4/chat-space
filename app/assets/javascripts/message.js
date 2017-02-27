@@ -57,11 +57,14 @@ $(document).on('turbolinks:load', function() {
       })
       .done(function(message) {
         var insertHTML = '';
-        $('.chat-messages').empty();
-        message.forEach(function(message){
-          insertHTML += buildHTML(message);
-        });
-        $('.chat-messages').html(insertHTML);
+        add_message = $('.chat-message');
+        for(var i=0, l=add.length; i<l; i++){
+          message_id = add_message[i].getAttribute("id");
+          if(message_id != message[i].id){
+            insertHTML = buildHTML(message);
+            $('.chat-messages').append(insertHTML);
+          }
+        }
       })
       .fail(function(){
         alert('error');
