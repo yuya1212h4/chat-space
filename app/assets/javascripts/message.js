@@ -58,7 +58,7 @@ $(document).on('turbolinks:load', function() {
       .done(function(message) {
         var insertHTML = '';
         add_message = $('.chat-message');
-        for(var i=0, l=add.length; i<l; i++){
+        for(var i=0, l=add_message.length; i<l; i++){
           message_id = add_message[i].getAttribute("id");
           if(message_id != message[i].id){
             insertHTML = buildHTML(message);
