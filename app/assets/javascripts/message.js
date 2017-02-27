@@ -45,8 +45,8 @@ $(function() {
     return false;
   });
 
-  function getMessage(){
-
+  var autoReload = setInterval(function() {
+    if (window.location.href.match(/messages/)){
       $.ajax({
         type: 'GET',
         url: '',
@@ -63,10 +63,7 @@ $(function() {
       .fail(function(){
         alert('error');
       });
-    }
-
-    function autoReload(){
-      getMessage();
-    }
-    setInterval(autoReload, 10000);
+    } else {
+      clearInterval(autoReload);
+    }}, 3000);
 });
