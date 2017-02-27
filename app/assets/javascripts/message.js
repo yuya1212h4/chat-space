@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function() {
     var image = (message.image) ? `<img src = ${message.image}>` : "";
 
     var html = `
-      <li class = "chat-message">
+      <li class = "chat-message" id="${message.id}">
         <div class = "chat-message__header clearfix">
           <div class = "chat-message__name">
             ${message.name}
