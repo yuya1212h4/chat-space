@@ -21,6 +21,12 @@ $(document).on('turbolinks:load', function() {
     return html;
   }
 
+  function scrollBottom(){
+    $('.chat-body').animate({
+      scrollTop: $('.chat-messages').height()
+    });
+  }
+
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var textField = $('#message_body');
@@ -38,9 +44,8 @@ $(document).on('turbolinks:load', function() {
       var html = buildHTML(message);
       $('.chat-messages').append(html);
       textField.val('');
-      $('.chat-body').animate({
-        scrollTop: $('.chat-messages').height()
-      });
+
+      scrollBottom();
     })
     .fail(function() {
       alert('error');
