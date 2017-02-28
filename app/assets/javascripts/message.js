@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function() {
     var image = (message.image) ? `<img src = ${message.image}>` : "";
 
     var html = `
-      <li class = "chat-message" id="${message.id}">
+      <li class = "chat-message" data-message-id="${message.id}">
         <div class = "chat-message__header clearfix">
           <div class = "chat-message__name">
             ${message.name}
@@ -61,11 +61,14 @@ $(document).on('turbolinks:load', function() {
         dataType: 'json'
       })
       .done(function(message) {
-        var insertHTML = '';
+        var last_message_id = message.id;
+
+        var message_count = $('.chat-message').length;
         add_message = $('.chat-message');
-        var message_count = add_message.length
-        message_id = add_message[message_count-1].getAttribute("id");
-        if(message_id != add_message[message_count-1].id){
+        add_message_id = $(add_message[message_count-1]).data('message-id');
+
+        var insertHTML = '';
+        if(last_message_id != add_message_id){
           insertHTML = buildHTML(message);
           $('.chat-messages').append(insertHTML);
         }
