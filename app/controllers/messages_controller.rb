@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   def new
     @message = Message.new
     @group = Group.find(params[:group_id])
+    @last_message = @group.messages.last
     respond_to do |format|
       format.html
       format.json
