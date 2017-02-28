@@ -14,7 +14,7 @@
           = link_to 'Edit', edit_group_path(@group), class: 'chat-header__edit-btn'
       .chat-body
         %ul.chat-messages
-          = render @group.messages
+          = render @messages
       .chat-footer
         = form_for [@group, @message] do |f|
           = f.text_field :body, class: 'textarea', autofocus: true, placeholder: 'type a message'
