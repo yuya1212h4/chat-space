@@ -4,17 +4,12 @@ class MessagesController < ApplicationController
     @message = Message.new
     @group = Group.find(params[:group_id])
 
-    db_message_ids = []
-    @group.messages.each do |message|
-      db_message_ids << message.id.to_s
-    end
+    message_ids = @group.messages.pluck(:id)
 
-    current_message_ids = params[:message_ids]
-    current_message_ids = db_message_ids if current_message_ids.nil?
+    current_message_ids = params[:message_ids] || []
 
-    add_message_ids = db_message_ids - current_message_ids
-    add_message_ids.each do |id|
-      @messages.push( Message.find(id) )
+    @messages = @group.messages.reject do |message|
+      current_message_ids.include? message.id.to_s
     end
 
     respond_to do |format|
