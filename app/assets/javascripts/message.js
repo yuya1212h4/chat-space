@@ -54,7 +54,7 @@ $(document).on('turbolinks:load', function() {
   });
 
   var autoReload = setInterval(function() {
-    if (window.location.href.match(/messages/)){
+    if (window.location.href.match(/\/groups\/\d+\/messages\/new/)){
       $.ajax({
         type: 'GET',
         url: '',
