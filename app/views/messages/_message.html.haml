@@ -1,4 +1,4 @@
-%li.chat-message{ data: { message: { id: "#{message.id}" }}}
+%li.chat-message{ 'data-message-id': message.id }
   .chat-message__header.clearfix
     %p.chat-message__name
       = current_user.name
