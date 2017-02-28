@@ -4,13 +4,9 @@ class MessagesController < ApplicationController
     @message = Message.new
     @group = Group.find(params[:group_id])
 
-    message_ids = @group.messages.pluck(:id)
-
     current_message_ids = params[:message_ids] || []
 
-    @messages = @group.messages.reject do |message|
-      current_message_ids.include? message.id.to_s
-    end
+    @messages = Message.where.not(id: current_message_ids)
 
     respond_to do |format|
       format.html
