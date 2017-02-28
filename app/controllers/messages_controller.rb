@@ -3,7 +3,20 @@ class MessagesController < ApplicationController
   def new
     @message = Message.new
     @group = Group.find(params[:group_id])
-    @last_message = @group.messages.last
+
+    db_message_ids = []
+    @group.messages.each do |message|
+      db_message_ids << message.id.to_s
+    end
+
+    current_message_ids = params[:message_ids]
+    current_message_ids = db_message_ids if current_message_ids.nil?
+
+    add_message_ids = db_message_ids - current_message_ids
+    add_message_ids.each do |id|
+      @messages.push( Message.find(id) )
+    end
+
     respond_to do |format|
       format.html
       format.json
