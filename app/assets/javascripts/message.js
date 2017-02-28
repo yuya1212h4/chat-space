@@ -55,21 +55,26 @@ $(document).on('turbolinks:load', function() {
 
   var autoReload = setInterval(function() {
     if (window.location.href.match(/\/groups\/\d+\/messages\/new/)){
+      var message_ids = [];
+      var message_count = $('.chat-message').length;
+      add_message = $('.chat-message');
+
+      for(var i=0, l=message_count;i<l;i++){
+        add_message_ids = $(add_message[i]).data('message-id');
+        message_ids.push(add_message_ids);
+      }
       $.ajax({
         type: 'GET',
         url: '',
+        data: {
+          message_ids: message_ids,
+        },
         dataType: 'json'
       })
       .done(function(message) {
-        var last_message_id = message.id;
-
-        var message_count = $('.chat-message').length;
-        add_message = $('.chat-message');
-        add_message_id = $(add_message[message_count-1]).data('message-id');
-
-        var insertHTML = '';
-        if(last_message_id != add_message_id){
-          insertHTML = buildHTML(message);
+        insertHTML = '';
+        for(var i=0, l=message.length; i<l; i++){
+          insertHTML = buildHTML(message[i]);
           $('.chat-messages').append(insertHTML);
         }
       })
