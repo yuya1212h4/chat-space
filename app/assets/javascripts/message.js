@@ -58,11 +58,7 @@ $(document).on('turbolinks:load', function() {
       var message_ids = [];
       var message_count = $('.chat-message').length;
       add_message = $('.chat-message');
-
-      for(var i=0, l=message_count;i<l;i++){
-        add_message_ids = $(add_message[i]).data('message-id');
-        message_ids.push(add_message_ids);
-      }
+      message_ids = $(add_message[message_count-1]).data('message-id');
       $.ajax({
         type: 'GET',
         url: '',
