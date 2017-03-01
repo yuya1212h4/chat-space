@@ -4,9 +4,13 @@ class MessagesController < ApplicationController
     @message = Message.new
     @group = Group.find(params[:group_id])
 
-    current_message_ids = params[:message_ids] || []
-
-    @messages = Message.where.not(id: current_message_ids)
+    if @group.messages.present?
+      current_message_id =  params[:message_ids] || @group.messages.last.id.to_s || []
+      last_message_id = @group.messages.last.id.to_s || []
+      @messages = @group.messages.where(id: current_message_id.to_i+1..last_message_id.to_i+1) if current_message_id != last_message_id
+    elsif
+      @messages = @group.messages
+    end
 
     respond_to do |format|
       format.html
