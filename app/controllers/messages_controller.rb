@@ -4,8 +4,8 @@ class MessagesController < ApplicationController
     @message = Message.new
     @group = Group.find(params[:group_id])
 
-    if params[:message_ids].nil?
-      current_message_id = params[:message_ids]
+    if params[:last_message_id].present?
+      current_message_id = params[:last_message_id]
       @messages = @group.messages.where('id > ?', current_message_id)
     elsif
       @messages = @group.messages
