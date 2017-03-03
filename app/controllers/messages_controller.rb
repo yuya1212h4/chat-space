@@ -3,12 +3,7 @@ class MessagesController < ApplicationController
   def new
     @message = Message.new
     @group = Group.find(params[:group_id])
-
-    if params[:last_message_id].present?
-      @messages = @group.messages.where('id > ?', params[:last_message_id])
-    elsif
-      @messages = @group.messages
-    end
+    @messages = @group.messages.where('id > ?', params[:last_message_id])
 
     respond_to do |format|
       format.html
