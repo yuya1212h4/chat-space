@@ -3,7 +3,6 @@ class MessagesController < ApplicationController
   def new
     @message = Message.new
     @group = Group.find(params[:group_id])
-    @messages = @group.messages.where('id > ?', params[:last_message_id])
 
     respond_to do |format|
       format.html
