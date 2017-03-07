@@ -56,6 +56,7 @@ $(document).on('turbolinks:load', function() {
   var autoReload = setInterval(function() {
     if (window.location.href.match(/\/groups\/\d+\/messages\/new/)){
       var last_message_id = $('.chat-message').last().data('message-id');
+      var last_message_id = $('.chat-message').last().data('message-id') || 0;
       $.ajax({
         type: 'GET',
         url: '',
