@@ -1,4 +1,3 @@
-@messages = @group.messages.where('id > ?', params[:last_message_id])
 json.(@messages) do |message|
   json.id message.id
   json.name message.user.name
