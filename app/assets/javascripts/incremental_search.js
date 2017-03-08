@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
   function bulidSearchUserHTML(user) {
     var html = `
       <div class = "chat-group-user clearfix">

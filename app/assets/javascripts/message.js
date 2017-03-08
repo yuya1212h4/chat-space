@@ -1,9 +1,9 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   function buildHTML(message) {
     var image = (message.image) ? `<img src = ${message.image}>` : "";
 
     var html = `
-      <li class = "chat-message">
+      <li class = "chat-message" data-message-id="${message.id}">
         <div class = "chat-message__header clearfix">
           <div class = "chat-message__name">
             ${message.name}
@@ -19,6 +19,12 @@ $(function() {
       </li>
       `;
     return html;
+  }
+
+  function scrollBottom(){
+    $('.chat-body').animate({
+      scrollTop: $('.chat-messages').height()
+    });
   }
 
   $('#new_message').on('submit', function(e) {
@@ -38,10 +44,37 @@ $(function() {
       var html = buildHTML(message);
       $('.chat-messages').append(html);
       textField.val('');
+
+      scrollBottom();
     })
     .fail(function() {
       alert('error');
     });
     return false;
   });
+
+  var autoReload = setInterval(function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages\/new/)){
+      var last_message_id = $('.chat-message').last().data('message-id') || 0;
+      $.ajax({
+        type: 'GET',
+        url: '',
+        data: {
+          last_message_id: last_message_id,
+        },
+        dataType: 'json'
+      })
+      .done(function(message) {
+        insertHTML = '';
+        message.forEach(function(message){
+          insertHTML = buildHTML(message);
+          $('.chat-messages').append(insertHTML);
+        })
+      })
+      .fail(function(){
+        alert('error');
+      });
+    } else {
+      clearInterval(autoReload);
+    }}, 10000);
 });
