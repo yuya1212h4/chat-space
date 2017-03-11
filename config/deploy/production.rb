@@ -1,3 +1,9 @@
+# EC2サーバーのIP、EC2サーバーにログインするユーザー名、サーバーのロールを記述
+server '52.198.26.40', user: 'yuya', roles: %w{app db web}
+
+#デプロイするサーバーにsshログインする鍵の情報を記述
+set :ssh_options, keys: '~/.ssh/key_pair_key_rsa'
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
