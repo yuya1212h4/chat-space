@@ -1,6 +1,6 @@
 # config valid only for current version of Capistrano
 # capistrano のバージョン固定
-lock "3.4.0"
+lock "3.8.0"
 
 # デプロイするアプリケーション名
 set :application, "chat-space"
@@ -27,7 +27,8 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :keep_releases, 5
 
 # rubyのバージョン
-set :rbenv_ruby, '2.1.3'
+# set :rbenv_ruby, '2.1.3'
+# set :rbenv_path, '~/usr/local/opt/rbenv/shims'
 
 #出力するログのレベル。
 set :log_level, :debug
