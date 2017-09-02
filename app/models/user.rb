@@ -6,6 +6,9 @@ class User < ApplicationRecord
   has_and_belongs_to_many :groups
   has_many :messages
 
+  scope :not_user, -> (user){ where.not(id: user) }
+  scope :incremental_search, -> (name){ where('name LIKE(?)',"%#{name}%") }
+
   # allow users to update their accounts without passwords
    def update_without_current_password(params, *options)
      params.delete(:current_password)
