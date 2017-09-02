@@ -39,25 +39,7 @@ $(document).on('turbolinks:load', function() {
 
   var autoReload = setInterval(function() {
     if (window.location.href.match(/\/groups\/\d+\/messages\/new/)){
-      var last_message_id = $('.chat-message').last().data('message-id') || 0;
-      $.ajax({
-        type: 'GET',
-        url: '',
-        data: {
-          last_message_id: last_message_id,
-        },
-        dataType: 'json'
-      })
-      .done(function(message) {
-        insertHTML = '';
-        message.forEach(function(message){
-          insertHTML = buildHTML(message);
-          $('.chat-messages').append(insertHTML);
-        })
-      })
-      .fail(function(){
-        alert('error');
-      });
+      intervalmessage();
     } else {
       clearInterval(autoReload);
     }}, 100000);
@@ -100,5 +82,27 @@ function buildflashmessage(status) {
 function scrollBottom(){
   $('.chat-body').animate({
     scrollTop: $('.chat-messages').height()
+  });
+}
+
+function intervalmessage() {
+  var last_message_id = $('.chat-message').last().data('message-id') || 0;
+  $.ajax({
+    type: 'GET',
+    url: '',
+    data: {
+      last_message_id: last_message_id,
+    },
+    dataType: 'json'
+  })
+  .done(function(message) {
+    insertHTML = '';
+    message.forEach(function(message){
+      insertHTML = buildHTML(message);
+      $('.chat-messages').append(insertHTML);
+    })
+  })
+  .fail(function(){
+    alert('error');
   });
 }
