@@ -16,7 +16,7 @@
       .chat-group-form__field--left
         = f.label 'チャットメンバーを追加', class: 'chat-group-form__label'
       .chat-group-form__field--right
-        = f.collection_check_boxes :user_ids, User.all, :id, :name 
+        = f.collection_check_boxes :user_ids, User.all, :id, :name
 
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
@@ -29,6 +29,11 @@
       .chat-group-form__field--left
         = f.label 'チャットメンバー', class: 'chat-group-form__label'
       .chat-group-form__field--right
+        .chat-group-users
+          .chat-group-user.clearfix
+            .chat-group-user__name
+              = current_user.name
+              = f.hidden_field :usr_ids, name: 'group[user_ids][]', value: current_user.id
         #chat-group-users
 
     .chat-group-form__field.clearfix
