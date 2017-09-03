@@ -16,8 +16,8 @@
           = render @group.messages
       .chat-footer
         = form_for [@group, @message] do |f|
-          = f.text_field :body, class: 'textarea', autofocus: true, placeholder: 'type a message'
-          %label
-            .fa.fa-file-image-o
+          = f.text_field :body, class: 'textarea form_message', autofocus: true, placeholder: 'type a message'
+          %label.form__mask
+            .fa.fa-image
             = f.file_field :image
           = f.submit 'Send', class: 'submit-save'

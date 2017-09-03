@@ -190,11 +190,18 @@ a{
   padding: 0;
 }
 
-.fa-file-image-o{
-  position: relative;
-  right: 50px;
+.form__mask{
+  background-color: #fff;
+  padding: 16px 10px 18px 0 ;
+  border: none;
 }
 
 #message_image[type="file"] {
  display: none;
+}
+
+.form_message {
+  height: 50px;
+  border: none;
+  padding: 0 10px;
 }
