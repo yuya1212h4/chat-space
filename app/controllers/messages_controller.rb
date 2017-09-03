@@ -2,7 +2,8 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
-    @group = Group.find(params[:group_id])
+    groupid = params[:groupid_json] || params[:group_id]
+    @group = Group.find(groupid)
 
     respond_to do |format|
       format.html
