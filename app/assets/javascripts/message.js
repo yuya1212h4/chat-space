@@ -39,7 +39,9 @@ $(document).on('turbolinks:load', function() {
 
   var autoReload = setInterval(function() {
     if (window.location.href.match(/\/groups\/\d+\/messages\/new/)){
-      intervalmessage();
+      var $url = window.location.href.split('/');
+      var group_id = $url[$url.length - 3];
+      intervalmessage(group_id);
     } else {
       clearInterval(autoReload);
     }}, 100000);
@@ -85,22 +87,25 @@ function scrollBottom(){
   });
 }
 
-function intervalmessage() {
+function intervalmessage(group_id) {
   var last_message_id = $('.chat-message').last().data('message-id') || 0;
   $.ajax({
     type: 'GET',
     url: '',
     data: {
       last_message_id: last_message_id,
+      groupid_json: group_id
     },
     dataType: 'json'
   })
   .done(function(message) {
-    insertHTML = '';
-    message.forEach(function(message){
-      insertHTML = buildHTML(message);
-      $('.chat-messages').append(insertHTML);
-    })
+    if (message.length != 0) {
+      insertHTML = '';
+      message.forEach(function(message){
+        insertHTML = buildHTML(message);
+        $('.chat-messages').append(insertHTML);
+      })
+    }
   })
   .fail(function(){
     alert('error');
