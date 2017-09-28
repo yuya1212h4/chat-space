@@ -6,7 +6,7 @@ describe MessagesController, type: :controller do
 
   before do
    user = create(:user)
-   sign_in user
+   login_user user
   end
 
   describe 'GET #new' do
