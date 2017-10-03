@@ -27,7 +27,7 @@ describe MessagesController, type: :controller do
     end
 
     it 'render the :show template' do
-      post :create, params: { message: attributes_for(:message, body: nil), group_id: group.id }
+      post :create, params: { message: attributes_for(:message, body: nil, image: nil), group_id: group.id }
       expect(response).to render_template :"messages/new"
     end
   end
