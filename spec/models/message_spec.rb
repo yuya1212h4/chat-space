@@ -20,6 +20,11 @@ describe Message, type: :model do
       message.valid?
       expect(message).to be_valid
     end
+
+    it "is invalid without a body and image" do
+      message = build(:message, body: "", image: "")
+      message.valid?
+      expect(message.errors[:body_or_image]).to include("を入力してください")
     end
   end
 end
