@@ -15,6 +15,11 @@ describe Message, type: :model do
       expect(message).to be_valid
     end
 
+    it "is invalid without a image" do
+      message = build(:message, image: "")
+      message.valid?
+      expect(message).to be_valid
+    end
     end
   end
 end
