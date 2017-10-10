@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe MessagesController, type: :controller do
   let(:group){ create(:group) }
+  let(:user){ create(:user) }
   let(:message){ create(:message, group_id: group.id, user_id: user.id) }
 
   before do
@@ -13,6 +14,11 @@ describe MessagesController, type: :controller do
     it "renders the :new template" do
       get :new, params: { group_id: group.id }
       expect(response).to render_template :new
+    end
+
+    it "assigns the requested contact to @group" do
+      get :new, params: { group_id: group.id }
+      expect(assigns(:group)).to eq group
     end
   end
 
@@ -26,9 +32,19 @@ describe MessagesController, type: :controller do
       expect(response).to redirect_to new_group_message_path
     end
 
-    it 'render the :show template' do
-      post :create, params: { message: attributes_for(:message, body: nil, image: nil), group_id: group.id }
-      expect(response).to render_template :"messages/new"
+    describe 'POST #create' do
+
+      it "assigns the requested contact to @message" do
+        # message = create(:message)
+        post :create, params: { message: attributes_for(:message), group_id: group.id, user_id: user.id }
+        # binding.pry
+        expect(assigns(:message)).to be_a_new(Message)
+      end
+
+      it 'render the :show template' do
+        post :create, params: { message: attributes_for(:message, body: nil, image: nil), group_id: group.id }
+        expect(response).to render_template :"messages/new"
+      end
     end
   end
  end
