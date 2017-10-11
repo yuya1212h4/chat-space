@@ -26,6 +26,7 @@ gem 'devise'
 gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'fog'
 
 # Use ActiveModel has_secure_password

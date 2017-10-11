@@ -12,9 +12,11 @@ CarrierWave.configure do |config|
 
     case Rails.env
     when 'development'
+        config.storage = :fog
         config.fog_directory  = 'sample-test-yuya1212'
         config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/sample-test-yuya1212'
     when 'production'
+        config.storage = :fog
         config.fog_directory  = 'sample-test-yuya1212'
         config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/sample-test-yuya1212'
     when 'test'
