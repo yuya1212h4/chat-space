@@ -35,10 +35,12 @@ describe MessagesController, type: :controller do
     describe 'POST #create' do
 
       it "assigns the requested contact to @message" do
-        # message = create(:message)
-        post :create, params: { message: attributes_for(:message), group_id: group.id, user_id: user.id }
-        # binding.pry
-        expect(assigns(:message)).to be_a_new(Message)
+        params = {message: { body: 'test', image: 'test'} }
+        # post :create, params:  params
+        # params = ActionController::Parameters.new
+        # message_params = MessagesController.new(params)
+        expect(params).to eq({message: { body: 'test', image: 'test'}})
+        # expect(assigns(:message)).to eq message
       end
 
       it 'render the :show template' do
