@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function() {
     $('.flash-messages__notice').remove();
     $('.flash-messages__alert').remove();
 
-    if ((formData.get('message[body]') || formData.get('message[image]').presence) != undefined ){
+    if ((formData.get('message[body]') || formData.get('message[image]')) != "undefined" ){
       $.ajax({
         type: 'POST',
         url: '../messages',
