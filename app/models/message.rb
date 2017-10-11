@@ -9,5 +9,6 @@ class Message < ApplicationRecord
   private
   def body_or_image
     body.presence || image.presence
+    # self.body.presence と同義
   end
 end
