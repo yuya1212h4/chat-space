@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
+    @group = Group.find(params[:group_id])
     if @message.save
       respond_to do |format|
         format.html { redirect_to new_group_message_path(params[:group_id]), notice: 'メッセージの投稿が完了しました。' }
