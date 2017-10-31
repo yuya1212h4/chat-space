@@ -2,6 +2,7 @@ $(document).on('turbolinks:load', function() {
 
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
+    $this = $(this)[0];
     var formData = new FormData($(this).get(0));
     var flash_status = '';
     $('.flash-messages__notice').remove();
@@ -25,6 +26,7 @@ $(document).on('turbolinks:load', function() {
         flash_status = 'notice';
         var flash = buildflashmessage(flash_status);
         $(".flash-messages").prepend(flash);
+        $this.reset();
       })
       .fail(function() {
         alert('error');
