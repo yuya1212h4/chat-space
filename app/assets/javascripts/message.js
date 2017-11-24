@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function() {
       intervalmessage(group_id, $current_url);
     } else {
       clearInterval(autoReload);
-    }}, 100000);
+    }}, 10000);
 });
 
 
