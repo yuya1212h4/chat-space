@@ -4,4 +4,4 @@
       %p.chat-group__name
         = group.name
       %p.chat-group__message
-        = group.messages.last.body if group.messages.present?
+        = group.show_last_message

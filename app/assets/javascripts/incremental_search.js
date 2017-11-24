@@ -9,7 +9,6 @@ $(document).on('turbolinks:load', function() {
     var insertHTML = buildAddUserHTML(id, name);
     $('#chat-group-users').append(insertHTML);
     user.remove();  // 追加ボタンを押した後に、そのユーザーを削除
-    // $(".chat-group-user").remove(); // これだと全部消えるからだめ
   });
 
   $('#chat-group-users').on('click', '.user-search-remove', function(){
