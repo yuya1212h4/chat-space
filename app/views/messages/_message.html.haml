@@ -3,7 +3,7 @@
     %p.chat-message__name
       = current_user.name
     %p.chat-message__time
-      = l message.created_at
+      = format_posted_time(message.created_at)
   %p.chat-message__body
     = message.body
   = image_tag message.image.url if message.image.present?
