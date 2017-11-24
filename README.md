@@ -1,7 +1,7 @@
 # User
-- has_many :messages
 
 ## association
+- has_many :messages
 - has_and_belongs_to_many :groups
 
 ## columns
@@ -20,7 +20,6 @@
 
 ## columns
 - name           :string, null: false
-- user           :references
 - created_at
 - updated_at
 
