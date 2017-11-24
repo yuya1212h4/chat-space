@@ -3,7 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_and_belongs_to_many :groups
+  has_many :groups, through: :group_users
+  has_many :group_users
   has_many :messages
 
   scope :not_user, -> (user){ where.not(id: user) }
